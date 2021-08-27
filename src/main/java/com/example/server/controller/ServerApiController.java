@@ -25,4 +25,15 @@ public class ServerApiController {
         log.info("client req : {}", user);
         return user;
     }
+
+    @PostMapping("/user/header")
+    public User header(@RequestHeader(value = "x-authorization") String header, @RequestBody User user){
+        log.info("header : {}",header);
+        log.info("body : {}", user);
+        System.out.println("###header 통과 header: "+ header);
+
+        return user;
+    }
+
+
 }
